@@ -12,6 +12,7 @@ use yii\behaviors\AttributeBehavior;
 use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 /**
  * Class TrashBehavior
@@ -41,7 +42,7 @@ class TrashBehavior extends AttributeBehavior
      * @var callable the value that will be assigned to the attributes. This should be a valid
      * PHP callable whose return value will be assigned to the current attribute(s).
      */
-    public $value;
+     public $value;
 
     /**
      * @inheritdoc
@@ -55,6 +56,21 @@ class TrashBehavior extends AttributeBehavior
                 BaseActiveRecord::EVENT_BEFORE_DELETE => $this->trashAttribute,
             ];
         }
+    }
+
+    public function events(){
+        return ArrayHelper::merge([
+            ActiveRecord::EVENT_BEFORE_INSERT => 'checkNewRecord',
+        ], parent::events());
+    }
+
+    public function checkNewRecord($events){
+        /* @var $owner BaseActiveRecord */
+        $owner = $this->owner;
+
+        if($owner->hasAttribute($this->trashAttribute))
+            if(empty($owner->{$this->trashAttribute})||is_null($owner->{$this->trashAttribute}))
+                $owner->{$this->trashAttribute} = $this->restoredFlag;
     }
 
     protected function getValue($event)
