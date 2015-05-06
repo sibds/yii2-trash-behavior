@@ -6,6 +6,8 @@
  * Time: 0:02
  */
 
+use Codeception\Util\Debug;
+
 class TrashBehaviorTest extends \yii\codeception\TestCase
 {
     public $appConfig = '@tests/unit/_config.php';
@@ -59,7 +61,7 @@ class TrashBehaviorTest extends \yii\codeception\TestCase
 
         $this->assertTrue($model->removed==1);
         $this->assertTrue($model->isRemoved);
-        $this->assertFalse(is_null(ActiveRecordTrash::findOne(['id'=>1])));
+        $this->assertFalse(is_null(ActiveRecordTrash::find(['id'=>1])));
     }
 
     /**

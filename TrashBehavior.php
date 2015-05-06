@@ -66,6 +66,9 @@ class TrashBehavior extends AttributeBehavior
             if($owner->{$this->trashAttribute}==$this->restoredFlag)
             {
                 $event->isValid = false;
+                $owner->{$this->trashAttribute}=$this->removedFlag;
+                $owner->save(false);
+
                 return $this->removedFlag;
             }else{
                 return true;
