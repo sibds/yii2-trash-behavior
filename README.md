@@ -1,6 +1,10 @@
 # yii2-trash-behavior
 AR models behavior that allows to mark models as deleted and then restore them.
 
+[![Build Status](https://travis-ci.org/sibds/yii2-trash-behavior.svg?branch=master)](https://travis-ci.org/sibds/yii2-trash-behavior)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sibds/yii2-trash-behavior/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sibds/yii2-trash-behavior/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/sibds/yii2-trash-behavior/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/sibds/yii2-trash-behavior/?branch=master)
+
 ## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
