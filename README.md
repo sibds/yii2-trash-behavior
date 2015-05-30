@@ -1,6 +1,24 @@
 # yii2-trash-behavior
 AR models behavior that allows to mark models as deleted and then restore them.
 
+## Installation
+
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+
+Either run
+
+```bash
+$ composer require sibds/yii2-trash-behavior
+```
+
+or add
+
+```
+"sibds/yii2-trash-behavior": "*"
+```
+
+to the `require` section of your `composer.json` file.
+
 ## How to use?
 
 Paste in the model code:
