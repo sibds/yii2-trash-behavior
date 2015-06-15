@@ -10,8 +10,6 @@ namespace sibds\behaviors;
 
 
 use yii\behaviors\AttributeBehavior;
-use yii\db\ActiveQuery;
-use yii\db\Expression;
 use yii\helpers\ArrayHelper;
 
 /**

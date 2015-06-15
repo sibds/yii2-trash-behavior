@@ -11,7 +11,6 @@ namespace sibds\behaviors;
 use yii\behaviors\AttributeBehavior;
 use yii\db\ActiveRecord;
 use yii\db\BaseActiveRecord;
-use yii\db\Expression;
 use yii\helpers\ArrayHelper;
 
 /**
