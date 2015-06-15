@@ -114,6 +114,21 @@ class TrashBehaviorTest extends \yii\codeception\TestCase
         $this->assertTrue($countRemoved>0);
         $this->assertTrue($countBefore>$countAfter);
     }
+
+    /**
+     * @depends testFindWithoutRemoved
+     */
+    public function testFindWithRemoved()
+    {
+        $countWithoutRemoved = ActiveRecordTrash::find()->count();
+
+        $countRemoved = ActiveRecordTrash::find()->onlyRemoved()->count();
+
+        $countWithRemoved = ActiveRecordTrash::find()->withRemoved()->count();
+
+        $this->assertTrue($countWithoutRemoved>0);
+        $this->assertTrue($countWithoutRemoved+$countRemoved==$countWithRemoved);
+    }
 }
 
 /**

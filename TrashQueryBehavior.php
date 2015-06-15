@@ -12,6 +12,7 @@ namespace sibds\behaviors;
 use yii\behaviors\AttributeBehavior;
 use yii\db\ActiveQuery;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 /**
  * Class TrashQuery
@@ -31,8 +32,14 @@ class TrashQueryBehavior extends AttributeBehavior
         return $this->findRemoved();//$this->filterRemoved(true);
     }
 
+    public function withRemoved(){
+        $model = new $this->owner->modelClass();
+
+        return $this->owner->where(ArrayHelper::merge($model->fullTrashAttribute(true), $model->fullTrashAttribute(false)));
+    }
+
     public function onlyActive(){
-        $this->showRemoved = true;
+        $this->showRemoved = false;
         return $this->findRemoved();//$this->filterRemoved();
     }
     /*

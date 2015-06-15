@@ -62,3 +62,7 @@ Selecting only marked for deletion of records:
 ```php
   $count = Post::find()->onlyRemoved()->count();
 ```
+Selecting all records:
+```php
+  $allPosts = Post::find()->withRemoved()->all();
+```
