@@ -27,7 +27,7 @@ class TrashQueryBehavior extends AttributeBehavior
 
     public function onlyRemoved(){
         $this->showRemoved = true;
-        return $this->findRemoved();//$this->filterRemoved(true);
+        return $this->findRemoved();
     }
 
     public function withRemoved(){
@@ -38,7 +38,7 @@ class TrashQueryBehavior extends AttributeBehavior
 
     public function onlyActive(){
         $this->showRemoved = false;
-        return $this->findRemoved();//$this->filterRemoved();
+        return $this->findRemoved();
     }
     /*
     public function events(){

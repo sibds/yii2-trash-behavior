@@ -152,6 +152,9 @@ class ActiveRecordTrash extends yii\db\ActiveRecord
         return 'test_auto_trash';
     }
 
+    /**
+     * @return \sibds\behaviors\TrashQuery
+     */
     public static function find(){
         return (new \sibds\behaviors\TrashQuery(get_called_class()))->findRemoved();
     }
