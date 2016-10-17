@@ -108,7 +108,13 @@ class TrashBehavior extends AttributeBehavior
         return $this->owner->{$this->trashAttribute}==$this->removedFlag;
     }
 
+    public function trashAttribute(){
+        $owner = $this->owner->className();
+
+        return $owner::tableName().'.'.$this->trashAttribute;
+    }
+
     public function fullTrashAttribute($removed=false){
-        return [$this->trashAttribute=>($removed?$this->removedFlag:$this->restoredFlag)];
+        return [$this->trashAttribute()=>($removed?$this->removedFlag:$this->restoredFlag)];
     }
 }
