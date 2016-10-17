@@ -14,9 +14,9 @@ matrix:
     - php: hhvm
 
 install:
-  - composer self-update
-  - composer global require fxp/composer-asset-plugin:^1.2.0
-  - composer install
+  - travis_retry composer self-update && composer --version
+  - travis_retry composer global require "fxp/composer-asset-plugin:~1.2.0"
+  - travis_retry composer update --dev --prefer-dist --no-interaction
 
 #before_script:
 #  - mysql -e 'create database yii2_translateable_test;'
