@@ -33,7 +33,7 @@ class TrashQueryBehavior extends AttributeBehavior
     public function withRemoved() {
         $model = new $this->owner->modelClass();
 
-        return $this->owner->where([$model->trashAttribute=>[$model->removedFlag,$model->restoredFlag]]);
+        return $this->owner->where([$model->trashAttribute()=>[$model->removedFlag,$model->restoredFlag]]);
     }
 
     public function onlyActive() {
