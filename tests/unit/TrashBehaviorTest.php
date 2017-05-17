@@ -91,9 +91,9 @@ class TrashBehaviorTest extends \yii\codeception\TestCase
 
     public function testFullTrashAttribute(){
         $model = new ActiveRecordTrash();
-
-        $this->assertTrue($model->fullTrashAttribute()==['removed'=>0]);
-        $this->assertTrue($model->fullTrashAttribute(true)==['removed'=>1]);
+        //Debug::debug($model->fullTrashAttribute(true));
+        $this->assertTrue($model->fullTrashAttribute()==[ActiveRecordTrash::tableName().'.removed'=>0]);
+        $this->assertTrue($model->fullTrashAttribute(true)==[ActiveRecordTrash::tableName().'.removed'=>1]);
     }
 
     /**
@@ -149,7 +149,7 @@ class ActiveRecordTrash extends yii\db\ActiveRecord
 
     public static function tableName()
     {
-        return 'test_auto_trash';
+        return '{{%test_auto_trash}}';
     }
 
     /**
