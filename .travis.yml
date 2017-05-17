@@ -22,7 +22,7 @@ install:
 #  - mysql -e 'create database yii2_translateable_test;'
 
 script:
-  - "wget http://codeception.com/codecept.phar"
+  - "wget http://codeception.com/php54/codecept.phar"
   - php ./codecept.phar build
   - php ./codecept.phar run --coverage --xml
 
